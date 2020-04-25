@@ -1,0 +1,111 @@
+Question
+----------------------
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) -- Push element x onto stack.
+pop() -- Removes the element on top of the stack.
+top() -- Get the top element.
+getMin() -- Retrieve the minimum element in the stack.
+ 
+
+Link : https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1360/
+
+
+Solutions
+---------------------------------------------------------------------------------------------------------
+
+Approach 1
+================
+class MinStack(object):
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.arr=[]
+        self.min_arr=[]
+
+    def push(self, x):
+        """
+        :type x: int
+        :rtype: None
+        """
+        self.arr.append(x)
+        
+        if not len(self.min_arr) or  self.min_arr[-1]>x:
+                self.min_arr.append(x)
+        else:
+            self.min_arr.append(self.min_arr[-1])
+        
+
+    def pop(self):
+        """
+        :rtype: None
+        """
+        self.min_arr.pop()
+        return self.arr.pop()
+
+    def top(self):
+        """
+        :rtype: int
+        """
+        return self.arr[-1]
+        
+
+    def getMin(self):
+        """
+        :rtype: int
+        """
+        return self.min_arr[-1]
+
+
+
+
+Demerit
+--------: numbers are repeated and more space is wasted ..can be minimized in approach-2
+
+==============================
+Approach 2
+=====================
+
+class MinStack(object):
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.arr=[]
+        self.min_arr=[]
+
+    def push(self, x):
+        """
+        :type x: int
+        :rtype: None
+        """
+        self.arr.append(x)
+        
+        if not len(self.min_arr) or  self.min_arr[-1]>=x:
+                self.min_arr.append(x)
+        
+
+    def pop(self):
+        """
+        :rtype: None
+        """
+        if self.arr[-1]==self.min_arr[-1]:
+            self.min_arr.pop()
+        return self.arr.pop()
+
+    def top(self):
+        """
+        :rtype: int
+        """
+        return self.arr[-1]
+        
+
+    def getMin(self):
+        """
+        :rtype: int
+        """
+        return self.min_arr[-1]
+
