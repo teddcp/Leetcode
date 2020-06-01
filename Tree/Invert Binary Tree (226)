@@ -1,0 +1,47 @@
+link : https://leetcode.com/problems/invert-binary-tree/
+
+SOLUTIONS
+===================================================
+
+1. RECURSIVE SOLUTION 
+    
+    ALGORITHM
+    ====================
+      
+      Call invert for left-subtree.
+      Call invert for right-subtree.
+      Swap left and right subtrees.
+  
+    CODES
+    ====================
+
+          # Definition for a binary tree node.
+          # class TreeNode:
+          #     def __init__(self, val=0, left=None, right=None):
+          #         self.val = val
+          #         self.left = left
+          #         self.right = right
+          
+          class Solution:
+              def invertTree(self, root: TreeNode) -> TreeNode:
+          
+                  if not root:
+                      return
+                  else:
+                      self.invertTree(root.left)
+                      self.invertTree(root.right)
+
+                      temp= root.left
+                      root.left= root.right
+                      root.right=temp
+
+                      return root
+    LINKS
+    =======
+    https://www.educative.io/edpresso/how-to-invert-a-binary-tree
+    https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
+    https://www.techiedelight.com/invert-binary-tree-recursive-iterative/
+    https://afteracademy.com/blog/invert-a-binary-tree
+    
+    https://www.interviewbit.com/problems/invert-the-binary-tree/
+    
