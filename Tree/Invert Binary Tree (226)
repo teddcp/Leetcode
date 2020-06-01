@@ -36,8 +36,19 @@ SOLUTIONS
                       root.right=temp
 
                       return root
+                      
+    TIME AND SPACE COMPLEXITY
+    =============================
+   
+   Complexity Analysis
+        In the above approach, we are traversing each node of the tree only once. Time complexity: O(n)
+
+   Space Complexity of this algorithm is proportional to the maximum depth of recursion tree generated which is equal to the height of    the tree (h).
+
+   Space complexity: O(h) for recursion call stack, where h is the height of the tree.
+   
     LINKS
-    =======
+    ==================================
     https://www.educative.io/edpresso/how-to-invert-a-binary-tree
     https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
     https://www.techiedelight.com/invert-binary-tree-recursive-iterative/
